@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="outer-card">
+      <img src="images/bg-intro-desktop.png" />
+
+      <div class="inner-card">
+        <div class="left-card">
+          <p class="learn-text" style="margin-bottom: -45px">
+            Learn to code by
+          </p>
+          <p class="learn-text">watching others</p>
+
+          <p class="description">
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </p>
+        </div>
+
+        <div class="right-card">
+          <div class="ad-card">Try it free 7 days then $20/mo. thereafter</div>
+          <div class="login-card">
+            <div>
+              <input
+                type="text"
+                placeholder="First Name"
+                class="input-field First"
+              />
+              <p id="errorFirst" class="errorMsg"></p>
+              <input
+                type="text"
+                placeholder="Last name"
+                class="input-field Last"
+              />
+              <p id="errorLast" class="errorMsg"></p>
+              <input
+                type="email"
+                placeholder="Email Address"
+                class="input-field email"
+              />
+              <p id="errorEmail" class="errorMsg"></p>
+              <input
+                type="password"
+                placeholder="Password"
+                class="input-field password"
+              />
+              <p id="errorPassword" class="errorMsg"></p>
+            </div>
+
+            <p id="showError" class="errorMsg"></p>
+            <button class="trail-button" onclick="inputWritten()">
+              Claim your free trial
+            </button>
+
+            <p class="terms-text">
+              By clicking the button, you are agreeing to our
+              <span class="terms-link">Terms and Services</span>
+            </p>
+          </div>
+
+          <footer>
+            <p class="attribution">
+              Challenge by
+              <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+              >. Coded by <a href="#">Wolf</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script>
+      function inputWritten() {
+        let inputFirst = document.querySelector(".First").value;
+        let inputLast = document.querySelector(".Last").value;
+        let inputEmail = document.querySelector(".email").value;
+        let inputPassword = document.querySelector(".password").value;
+
+        const result = {
+          inputFirst,
+          inputLast,
+          inputEmail,
+          inputPassword,
+        };
+        submitBtn(result);
+
+        return result;
+      }
+
+      function submitBtn(result) {
+        let result2 = "";
+        let showError = false;
+
+        if (result.inputFirst === "") {
+          result2 += "First Name";
+          showError = true;
+          document.getElementById("errorFirst").textContent =
+          " First Name field can't be empty"
+        }
+        if (result.inputLast === "") {
+          result2 += (showError ? ", " : "") + "Last Name";
+          showError = true;
+          document.getElementById("errorLast").textContent =
+          " Last name field can't be empty"
+        }
+        if (result.inputEmail === "") {
+          result2 += (showError ? ", " : "") + "Email";
+          showError = true;
+          document.getElementById("errorEmail").textContent =
+          " Email field can't be empty"
+        }
+        if (result.inputPassword === "") {
+          result2 += (showError ? ", " : "") + "Password";
+          showError = true;
+          document.getElementById("errorPassword").textContent =
+          " Password field can't be empty"
+        }
+        /*
+        if (showError === true) {
+          document.getElementById("showError").textContent =
+            result2 + " field can't be empty";
+          document.getElementById("showError").style.display = "block";
+        } else {
+          document.getElementById("showError").textContent = "";
+          document.getElementById("showError").style.display = "none";
+          alert("Congrats mf you are in");
+        }
+          */
+
+      }
+    </script>
+  </body>
+</html>
