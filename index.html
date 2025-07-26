@@ -130,36 +130,68 @@
           result2 += "First Name";
           showError = true;
           document.getElementById("errorFirst").textContent =
-          " First Name field can't be empty"
+            " First Name field can't be empty";
         } else if (showError === false) {
-          document.getElementById("errorFirst").textContent =
-          ""
+          document.getElementById("errorFirst").textContent = "";
         }
         if (result.inputLast === "") {
           result2 += (showError ? ", " : "") + "Last Name";
           showError = true;
           document.getElementById("errorLast").textContent =
-          " Last name field can't be empty"
+            " Last name field can't be empty";
         } else if (showError === false) {
-          document.getElementById("errorLast").textContent =
-          "" }
+          document.getElementById("errorLast").textContent = "";
+        }
         if (result.inputEmail === "") {
           result2 += (showError ? ", " : "") + "Email";
           showError = true;
           document.getElementById("errorEmail").textContent =
-          " Email field can't be empty"
+            " Email field can't be empty";
         } else if (showError === false) {
-          document.getElementById("errorEmail").textContent =
-          "" }
+          document.getElementById("errorEmail").textContent = "";
+        }
         if (result.inputPassword === "") {
           result2 += (showError ? ", " : "") + "Password";
           showError = true;
           document.getElementById("errorPassword").textContent =
-          " Password field can't be empty"
+            " Password field can't be empty";
         } else if (showError === false) {
-          document.getElementById("errorPassword").textContent =
-          ""}
+          document.getElementById("errorPassword").textContent = "";
+        }
 
+        let firstInput = document.querySelector(".First");
+        let lastInput = document.querySelector(".Last");
+        let emailInput = document.querySelector(".email");
+        let passwordInput = document.querySelector(".password");
+
+        firstInput.addEventListener("input", checkFirst);
+        lastInput.addEventListener("input", checkLast);
+        emailInput.addEventListener("input", checkEmail);
+        passwordInput.addEventListener("input", checkPassword);
+
+        function checkFirst() {
+          if (firstInput.value !== "") {
+            document.getElementById("errorFirst").textContent = "";
+          }
+        }
+
+        function checkLast() {
+          if (lastInput.value !== "") {
+            document.getElementById("errorLast").textContent = "";
+          }
+        }
+
+        function checkEmail() {
+          if (emailInput.value !== "") {
+            document.getElementById("errorEmail").textContent = "";
+          }
+        }
+
+        function checkPassword() {
+          if (passwordInput.value !== "") {
+            document.getElementById("errorPassword").textContent = "";
+          }
+        }
       }
     </script>
   </body>
