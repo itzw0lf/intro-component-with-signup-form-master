@@ -131,25 +131,34 @@
           showError = true;
           document.getElementById("errorFirst").textContent =
           " First Name field can't be empty"
+        } else if (showError === false) {
+          document.getElementById("errorFirst").textContent =
+          ""
         }
         if (result.inputLast === "") {
           result2 += (showError ? ", " : "") + "Last Name";
           showError = true;
           document.getElementById("errorLast").textContent =
           " Last name field can't be empty"
-        }
+        } else if (showError === false) {
+          document.getElementById("errorLast").textContent =
+          "" }
         if (result.inputEmail === "") {
           result2 += (showError ? ", " : "") + "Email";
           showError = true;
           document.getElementById("errorEmail").textContent =
           " Email field can't be empty"
-        }
+        } else if (showError === false) {
+          document.getElementById("errorEmail").textContent =
+          "" }
         if (result.inputPassword === "") {
           result2 += (showError ? ", " : "") + "Password";
           showError = true;
           document.getElementById("errorPassword").textContent =
           " Password field can't be empty"
-        }
+        } else if (showError === false) {
+          document.getElementById("errorPassword").textContent =
+          ""}
 
       }
     </script>
